@@ -6,6 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD Mahasiswa</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        .music-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -77,19 +93,19 @@
                 <form method="post">
                     <div class="mb-4">
                         <label for="nim" class="block text-gray-700">NIM:</label>
-                        <input type="text" id="nim" name="nim" class="w-full rounded border-gray-300">
+                        <input type="text" id="nim" name="nim" class="w-full rounded border-gray-300" required>
                     </div>
                     <div class="mb-4">
                         <label for="nama" class="block text-gray-700">Nama:</label>
-                        <input type="text" id="nama" name="nama" class="w-full rounded border-gray-300">
+                        <input type="text" id="nama" name="nama" class="w-full rounded border-gray-300" required>
                     </div>
                     <div class="mb-4">
                         <label for="alamat" class="block text-gray-700">Alamat:</label>
-                        <input type="text" id="alamat" name="alamat" class="w-full rounded border-gray-300">
+                        <input type="text" id="alamat" name="alamat" class="w-full rounded border-gray-300" required>
                     </div>
                     <div class="mb-4">
                         <label for="jurusan" class="block text-gray-700">Jurusan:</label>
-                        <input type="text" id="jurusan" name="jurusan" class="w-full rounded border-gray-300">
+                        <input type="text" id="jurusan" name="jurusan" class="w-full rounded border-gray-300" required>
                     </div>
                     <div class="mb-4">
                         <input type="submit" name="create" value="Tambah" class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
@@ -101,7 +117,7 @@
             </div>
         </div>
 
-        <div class="w-full mt-2 mx-auto bg-white p-6 rounded-lg shadow-xl overflow-x-auto">
+        <div class="w-full mx-auto bg-white p-6 rounded-lg shadow-xl overflow-x-auto">
             <h1 class="font-bold text-xl mb-2">Data Mahasiswa</h1>
             <table class="w-full">
                 <thead>
@@ -132,7 +148,27 @@
                 </tbody>
             </table>
         </div>
+        <button class="music-button rounded-full bg-blue-600 py-3 px-4 shadow-lg" onclick="toggleMusic()"><i class="bi bi-music-note-beamed"></i></button>
+
+        <audio id="bgMusic" loop>
+            <source src="RIP PHONK.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
     </div>
+
+    <script>
+        let isMusicPlaying = false;
+
+        function toggleMusic() {
+            const music = document.getElementById("bgMusic");
+            if (isMusicPlaying) {
+                music.pause();
+            } else {
+                music.play();
+            }
+            isMusicPlaying = !isMusicPlaying;
+        }
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
